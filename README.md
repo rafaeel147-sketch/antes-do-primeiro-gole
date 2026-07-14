@@ -60,6 +60,12 @@ O arquivo foi incluído em:
 
 Para publicar uma versão revisada, substitua o PDF mantendo o mesmo nome. Assim, todos os botões continuam funcionando.
 
+O livro digital está em:
+
+`documentos/livro-antes-do-primeiro-gole.pdf`
+
+Para atualizá-lo, substitua o arquivo mantendo o mesmo nome.
+
 ## 4. Configurar e-mail e WhatsApp
 
 Abra `script.js` e altere estas linhas:

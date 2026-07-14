@@ -481,8 +481,10 @@ code {
 .cover {
   position: absolute;
   margin: 0;
+  color: inherit;
+  cursor: pointer;
   filter: drop-shadow(var(--shadow-cover));
-  transition: transform 500ms cubic-bezier(.2,.7,.2,1);
+  transition: transform 500ms cubic-bezier(.2,.7,.2,1), filter 300ms ease;
 }
 
 .cover img {
@@ -490,7 +492,7 @@ code {
   background: var(--color-white);
 }
 
-.cover figcaption {
+.cover-caption {
   position: absolute;
   right: .5rem;
   bottom: .5rem;
@@ -500,6 +502,7 @@ code {
   color: var(--color-white);
   font-size: .68rem;
   font-weight: 700;
+  text-align: center;
   backdrop-filter: blur(8px);
 }
 
@@ -515,8 +518,19 @@ code {
   transform: translate(34%, 8%) rotate(8deg);
 }
 
-.cover-stage:hover .cover-book { transform: translate(-24%, -7%) rotate(-8deg); }
-.cover-stage:hover .cover-guide { transform: translate(40%, 6%) rotate(10deg); }
+.cover:hover,
+.cover:focus-visible {
+  z-index: 3;
+  filter: drop-shadow(0 24px 35px rgba(9, 28, 44, .38));
+  outline: 3px solid var(--color-orange-500);
+  outline-offset: 6px;
+}
+
+.cover-book:hover,
+.cover-book:focus-visible { transform: translate(-24%, -7%) rotate(-3deg) scale(1.05); }
+
+.cover-guide:hover,
+.cover-guide:focus-visible { transform: translate(30%, 3%) rotate(3deg) scale(1.07); }
 
 .hero-path {
   position: absolute;
@@ -612,6 +626,21 @@ code {
   box-shadow: var(--shadow-cover);
   transform: rotate(-3deg);
 }
+
+.work-media a {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  border-radius: .75rem;
+}
+
+.work-media a:focus-visible {
+  outline: 3px solid var(--color-orange-500);
+  outline-offset: 6px;
+}
+
+.work-media a img { transition: transform 250ms ease, box-shadow 250ms ease; }
+.work-media a:hover img { transform: rotate(0) scale(1.035); }
 
 .work-guide .work-media img { transform: rotate(3deg); }
 
@@ -1346,8 +1375,8 @@ code {
     transform: none;
   }
 
-  .cover-stage:hover .cover-book,
-  .cover-stage:hover .cover-guide { transform: initial; }
+  .cover:hover,
+  .cover:focus-visible { transition-duration: .01ms !important; }
 }
 
 @media print {
