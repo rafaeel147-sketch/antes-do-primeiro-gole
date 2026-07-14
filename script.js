@@ -2,8 +2,8 @@
   "use strict";
 
   // SUBSTITUA ESTES DADOS ANTES DE PUBLICAR.
-  const CONTACT_EMAIL = "contato@seudominio.com.br";
-  const WHATSAPP_NUMBER = "5562999999999";
+  const CONTACT_EMAIL = "antesdoprimeirogole1@gmail.com";
+  const WHATSAPP_NUMBER = "5562991021154";
   const PLACEHOLDER_EMAIL = "contato@seudominio.com.br";
   const PLACEHOLDER_WHATSAPP = "5562999999999";
 
