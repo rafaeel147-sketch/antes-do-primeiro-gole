@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Página não encontrada | Antes do Primeiro Gole</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#17324d">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    .error-page{min-height:100svh;display:grid;place-items:center;padding:2rem;background:#f4efe5}
+    .error-card{width:min(100%,44rem);padding:clamp(2rem,6vw,4rem);border-radius:2rem;background:#fff;box-shadow:0 22px 60px rgba(11,32,51,.14);text-align:center}
+    .error-code{margin:0;color:#c86f3d;font:700 clamp(5rem,20vw,10rem)/.9 Georgia,serif}
+    .error-card h1{font-size:clamp(2rem,6vw,3.8rem)}
+    .error-card p{color:#43505c}
+  </style>
+</head>
+<body>
+  <main class="error-page">
+    <section class="error-card" aria-labelledby="erro-titulo">
+      <p class="error-code" aria-hidden="true">404</p>
+      <h1 id="erro-titulo">Este caminho não foi encontrado</h1>
+      <p>A página pode ter mudado de endereço ou ainda não ter sido publicada.</p>
+      <a class="button button-primary" href="/">Voltar ao início</a>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 180" role="img" aria-labelledby="t d">
+<title id="t">Linha abstrata de caminho</title>
+<desc id="d">Uma linha orgânica que representa percurso e reconstrução.</desc>
+<path d="M15 130C120 20 220 170 315 82S520 18 615 104s135 30 170-45" fill="none" stroke="#C86F3D" stroke-width="8" stroke-linecap="round" stroke-dasharray="1 22"/>
+<path d="M15 130C120 20 220 170 315 82S520 18 615 104s135 30 170-45" fill="none" stroke="#17324D" stroke-opacity=".18" stroke-width="2"/>
+</svg>

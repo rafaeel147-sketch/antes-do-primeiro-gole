@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rafaeel147-sketch.github.io/antes-do-primeiro-gole/sitemap.xml
