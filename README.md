@@ -1,187 +1,44 @@
-# Antes do Primeiro Gole — site institucional
+# Antes do Primeiro Gole — entrada antiga e arquivo histórico
 
-Site estático em HTML, CSS e JavaScript puro, preparado para publicação por **Direct Upload no Cloudflare Pages**.
+O site principal é **https://rafaeel147-sketch.github.io/antes-do-primeiro-gole1/**,
+mantido no repositório `rafaeel147-sketch/antes-do-primeiro-gole1`.
+Este repositório conserva a entrada antiga, a versão inicial e os PDFs em seus endereços originais.
 
-## Estrutura
+## Mapa de URLs
 
-```text
-antes-do-primeiro-gole/
-├── index.html
-├── styles.css
-├── script.js
-├── favicon.svg
-├── robots.txt
-├── sitemap.xml
-├── _headers
-├── 404.html
-├── README.md
-├── assets/
-│   ├── livro-cover.png
-│   ├── cartilha-cover.png
-│   ├── autor.jpg
-│   ├── og-image.jpg
-│   └── detalhes/
-└── documentos/
-    └── cartilha-antes-do-primeiro-gole.pdf
-```
+| URL | Função após a publicação deste PR |
+| --- | --- |
+| `/antes-do-primeiro-gole/` e `/antes-do-primeiro-gole/index.html` | Entrada que encaminha para o site principal; canonical e Open Graph apontam para `/antes-do-primeiro-gole1/`. |
+| `/antes-do-primeiro-gole/arquivo/` | Versão inicial identificada como histórica, com canonical próprio e links para o site principal e o RAPS no Bolso. |
+| `/antes-do-primeiro-gole/documentos/livro-antes-do-primeiro-gole.pdf` | Livro preservado no mesmo endereço e com os mesmos bytes. |
+| `/antes-do-primeiro-gole/documentos/cartilha-antes-do-primeiro-gole.pdf` | Cartilha preservada no mesmo endereço e com os mesmos bytes. |
+| `/antes-do-primeiro-gole/sitemap.xml` | Lista somente o arquivo histórico, dentro do escopo deste diretório. |
+| `/antes-do-primeiro-gole1/sitemap.xml` | Sitemap do site principal; permanece no outro repositório. |
 
-## 1. Substituir as capas
+## Preservação e implementação
 
-Os arquivos reais já foram incluídos:
+- A versão histórica provém do `index.html` do commit `97e02be2d5f1be33a774c0e925d1d1ff85b584da`, de 14/07/2026.
+- Seu texto, seções, IDs, formulário, diálogos e links de documentos foram preservados. Mudam o aviso histórico, os metadados e a resolução dos caminhos de recursos, porque a página passa a estar em um subdiretório.
+- Os recursos do arquivo usam caminhos absolutos sob `/antes-do-primeiro-gole/`; não se usa `<base>`, para manter os links de fragmentos na própria página histórica.
+- Os IDs antigos continuam acessíveis no arquivo, por exemplo `/antes-do-primeiro-gole/arquivo/#livro`. Favoritos com fragmentos na antiga entrada não são remapeados automaticamente para páginas do site principal.
+- `assets/`, `documentos/`, `styles.css`, `script.js`, `favicon.svg`, `404.html` e os demais arquivos originais permanecem intactos.
+- A entrada usa `meta refresh` de zero segundos e link manual. Funciona sem JavaScript. É um redirecionamento no HTML: o GitHub Pages pode continuar respondendo HTTP 200, não HTTP 301/308.
+- O Google documenta o `meta refresh` imediato como sinal de redirecionamento permanente: https://developers.google.com/search/docs/crawling-indexing/301-redirects
+- Não há `noindex` ou bloqueio de rastreamento, nem alterações no conteúdo clínico ou jurídico.
+- O `robots.txt` neste subdiretório não controla a raiz do host `github.io`; a alteração não atribui a ele essa capacidade.
 
-- `assets/livro-cover.png`
-- `assets/cartilha-cover.png`
+## Verificação e publicação
 
-Para atualizar uma capa, substitua o arquivo mantendo **exatamente o mesmo nome**. Prefira PNG ou WebP nítido, em orientação vertical.
+Antes de abrir o PR, verificar: destino público HTTP 200 com canonical próprio, alinhamento de refresh/canonical/Open Graph, sitemap válido e restrito ao arquivo, preservação do conteúdo original, IDs e recursos resolvidos, e PDFs sem alteração de bytes.
 
-## 2. Incluir a foto do autor
+O PR é uma proposta de mudança. Enquanto não for incorporado ao `main` e publicado pelo GitHub Pages, o comportamento público permanece o anterior.
 
-`assets/autor.jpg` é uma imagem provisória.
+Depois da publicação, conferir as duas formas da entrada antiga, o arquivo histórico, CSS/JavaScript/imagens e os dois PDFs. Não remover o repositório ou os recursos originais: o arquivo e links distribuídos dependem deles.
 
-Substitua por uma foto autorizada de Rafael, mantendo o nome `autor.jpg`. Recomendação:
+Verificação de propriedade, envio de sitemap, páginas indexadas, canonical escolhido pelo Google, tráfego, baseline e efeitos deste redirecionamento ficam **NÃO DETERMINADOS** sem acesso ao Search Console.
 
-- proporção aproximada: 5:6;
-- mínimo: 1000 × 1200 px;
-- fundo simples;
-- boa iluminação;
-- não usar fotografia de outras pessoas sem autorização.
+Relacionado a: https://github.com/rafaeel147-sketch/antes-do-primeiro-gole1/issues/12
 
-Depois, ajuste o texto alternativo no `index.html`. Procure por:
+## Reversão
 
-```html
-alt="Espaço reservado para fotografia de Rafael Leandro de Carvalho"
-```
-
-## 3. Atualizar a cartilha em PDF
-
-O arquivo foi incluído em:
-
-`documentos/cartilha-antes-do-primeiro-gole.pdf`
-
-Para publicar uma versão revisada, substitua o PDF mantendo o mesmo nome. Assim, todos os botões continuam funcionando.
-
-O livro digital está em:
-
-`documentos/livro-antes-do-primeiro-gole.pdf`
-
-Para atualizá-lo, substitua o arquivo mantendo o mesmo nome.
-
-## 4. Configurar e-mail e WhatsApp
-
-Abra `script.js` e altere estas linhas:
-
-```js
-const CONTACT_EMAIL = "contato@seudominio.com.br";
-const WHATSAPP_NUMBER = "5562999999999";
-```
-
-No WhatsApp, use somente números, com código do país e DDD. Exemplo fictício:
-
-```js
-const WHATSAPP_NUMBER = "5562999999999";
-```
-
-Depois de configurar, remova ou atualize o aviso “Contato em configuração” no `index.html`.
-
-## 5. Testar localmente
-
-### Forma simples
-
-Abra `index.html` no navegador. A maior parte do site funcionará.
-
-### Forma recomendada
-
-Dentro da pasta, inicie um servidor local:
-
-```bash
-python -m http.server 8000
-```
-
-Depois acesse:
-
-`http://localhost:8000`
-
-Isso permite testar corretamente o PDF e o comportamento de arquivos.
-
-## 6. Compactar para ZIP
-
-Compacte **o conteúdo da pasta**, preservando a estrutura.
-
-No Windows:
-
-1. abra a pasta `antes-do-primeiro-gole`;
-2. selecione todos os arquivos e pastas;
-3. clique com o botão direito;
-4. escolha **Enviar para → Pasta compactada**.
-
-Confirme que `index.html` está na raiz do ZIP, e não dentro de duas pastas com o mesmo nome.
-
-## 7. Publicar no Cloudflare Pages por Direct Upload
-
-1. crie ou acesse sua conta Cloudflare;
-2. abra **Workers & Pages**;
-3. escolha **Create application**;
-4. selecione **Pages**;
-5. escolha **Upload assets / Direct Upload**;
-6. dê um nome ao projeto, por exemplo `antes-do-primeiro-gole`;
-7. envie a pasta ou o ZIP;
-8. confirme a publicação.
-
-O endereço inicial ficará parecido com:
-
-`https://antes-do-primeiro-gole.pages.dev`
-
-## 8. Atualizar o site futuramente
-
-Faça as alterações nos arquivos locais, teste e envie uma nova versão no mesmo projeto do Cloudflare Pages.
-
-Antes de cada atualização, guarde uma cópia do ZIP anterior.
-
-## 9. Conectar domínio próprio
-
-Quando houver um domínio:
-
-1. abra o projeto no Cloudflare Pages;
-2. entre em **Custom domains**;
-3. escolha **Set up a custom domain**;
-4. informe o domínio;
-5. siga a validação de DNS.
-
-Depois, substitua o domínio provisório nos seguintes arquivos:
-
-- `index.html`: canonical, Open Graph e JSON-LD;
-- `robots.txt`;
-- `sitemap.xml`.
-
-## 10. Formulário
-
-O formulário atual prepara uma mensagem por `mailto:` e não armazena dados.
-
-Alternativas futuras:
-
-- incorporar um Google Forms;
-- usar Cloudflare Pages Functions;
-- usar serviço de formulário compatível com a política de privacidade do projeto.
-
-## 11. Cuidados institucionais
-
-- Não incluir logotipos de Fiocruz, ANEPS, UFG, CAPS, Prefeitura, SECULT ou outra instituição sem autorização.
-- Não afirmar parceria, aprovação ou financiamento antes de confirmação formal.
-- A cartilha deve continuar identificada como material literário e educativo, não como tratamento.
-- Preserve os créditos de autoria de Rafael Leandro de Carvalho.
-
-## 12. Acessibilidade
-
-O site inclui:
-
-- navegação por teclado;
-- link para pular ao conteúdo;
-- foco visível;
-- menu móvel acessível;
-- perguntas frequentes em accordion;
-- redução de movimento;
-- textos alternativos;
-- contraste forte;
-- formulário com rótulos e mensagens de status.
-
-Ao substituir imagens, mantenha textos alternativos objetivos.
+Reverter o commit do PR restaura a entrada e o sitemap anteriores. Não é necessário restaurar PDFs ou recursos, pois eles não são alterados.
